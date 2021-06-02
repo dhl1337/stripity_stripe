@@ -136,7 +136,7 @@ defmodule Stripe.Account do
   @type t :: %__MODULE__{
           id: Stripe.id(),
           object: String.t(),
-          address_full_match: String.t(),
+          address_full_match: String.t() | nil,
           business_profile: business_profile | nil,
           business_type: String.t() | nil,
           capabilities: capabilities | nil,
