@@ -136,6 +136,7 @@ defmodule Stripe.Account do
   @type t :: %__MODULE__{
           id: Stripe.id(),
           object: String.t(),
+          address_full_match: String.t(),
           business_profile: business_profile | nil,
           business_type: String.t() | nil,
           capabilities: capabilities | nil,
@@ -160,6 +161,7 @@ defmodule Stripe.Account do
   defstruct [
     :id,
     :object,
+    :address_full_match,
     :business_profile,
     :business_type,
     :capabilities,
@@ -201,7 +203,8 @@ defmodule Stripe.Account do
                optional(:metadata) => Stripe.Types.metadata(),
                optional(:requested_capabilities) => capabilities,
                optional(:settings) => settings,
-               optional(:tos_acceptance) => tos_acceptance
+               optional(:tos_acceptance) => tos_acceptance,
+               optional(:address_full_match) => String.t()
              }
   def create(params, opts \\ []) do
     new_request(opts)
